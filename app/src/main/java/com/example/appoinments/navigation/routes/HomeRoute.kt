@@ -13,6 +13,7 @@ import com.example.appoinments.navigation.Screen
 
 fun NavGraphBuilder.homeRoute(
     vm : MainViewModel,
+    onOpenTopDoctors : () -> Unit,
     OnOpenDetail : (DoctorModel) -> Unit
 ){
     composable(route = Screen.Home.route){
@@ -25,6 +26,7 @@ fun NavGraphBuilder.homeRoute(
             if (doctors.isEmpty()) vm.loadDoctor()
         }
         MainScreen(viewModel = vm,
+            onOpenTopDoctors = onOpenTopDoctors,
         onOpenDoctorDetail = OnOpenDetail)
     }
 

@@ -48,10 +48,11 @@ fun RowScope.ActionItem(
             {
                 Image(painterResource(icon),contentDescription = null)
             }
-            Spacer(Modifier.height(8.dp))
-            Text(text = label, color = textColor, fontSize = MaterialTheme.typography.labelSmall.fontSize,
-                fontWeight = MaterialTheme.typography.labelSmall.fontWeight?: FontWeight.Bold)
+
         }
+        Spacer(Modifier.height(8.dp))
+        Text(text = label, color = textColor, fontSize = MaterialTheme.typography.labelSmall.fontSize,
+            fontWeight = MaterialTheme.typography.labelSmall.fontWeight?: FontWeight.Bold)
     }
 
 }

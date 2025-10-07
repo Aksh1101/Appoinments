@@ -8,6 +8,7 @@ import com.example.appoinments.core.viewModel.MainViewModel
 import com.example.appoinments.navigation.routes.detailRoute
 import com.example.appoinments.navigation.routes.homeRoute
 import com.example.appoinments.navigation.routes.introRoute
+import com.example.appoinments.navigation.routes.topDoctorsRoute
 
 @Composable
 fun AppNavGraph(
@@ -24,12 +25,19 @@ fun AppNavGraph(
                 }
             }
         )
-        homeRoute(vm = vm,
-            {doctorModel -> nav.navigateToDetail(doctorModel)})
+        homeRoute(
+            vm = vm,
+            onOpenTopDoctors = { nav.navigate(Screen.TopDoctors.route) },
+            OnOpenDetail = {doctorModel -> nav.navigateToDetail(doctorModel)},
+        )
+
         detailRoute(
             nav = nav,
             onBack = {nav.popBackStack()}
         )
+        topDoctorsRoute(vm = vm,
+            onBack = {nav.popBackStack()},
+            onOpenDetail = {doctorModel -> nav.navigateToDetail(doctorModel)})
 
 
     }

@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -136,6 +138,21 @@ fun DetailBody(
                 val text  = "${item.Name} ${item.Address} ${item.Mobile}"
                 onShare(subject, text)
             }
+        }
+        Button(onClick = {},
+            modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            shape = RoundedCornerShape(100.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = colorResource(R.color.darkPurple),
+                contentColor = Color.White
+            )
+        ) {
+            Text(text = "Make an Appointment",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(vertical = 8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 
